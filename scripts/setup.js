@@ -144,7 +144,7 @@ window.addEventListener('keydown', e => {
     }
   }
 
-  if (e.key === 'Escape') paused = !paused;
+  if (e.key === 'Escape' && gameHasStarted) paused = !paused;
   if (e.code == 'Space') simulate_ball = true;
 })
 
