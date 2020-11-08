@@ -14,6 +14,7 @@ let about = document.getElementById('about'); // Gets the about button to redire
 var setting = document.getElementById('setting screen');
 setting.style.display = 'none';
 
+// Set styles to html elements
 var win = document.getElementById('win screen');
 win.style.display = 'none';
 win.style.width = "30%";
@@ -21,6 +22,7 @@ win.style.left = "35%";
 win.style.height = "50%";
 win.style.top = "25%";
 
+// Set styles to html elements
 var lose = document.getElementById('lose screen');
 lose.style.display = 'none';
 lose.style.width = "30%";
@@ -28,14 +30,18 @@ lose.style.left = "35%";
 lose.style.height = "65%";
 lose.style.top = "17.5%";
 
+// Gets html elements and set highscore = 0
 var notif_elem = document.getElementById('notification');
 var playerScoreElem = document.getElementById('yourScore');
 var highScoreElem = document.getElementById('highScore');
 var highScore = 0;
 
+// Get html elements
 var startBtn = document.getElementById('start');
 var menu = document.getElementById('menu screen');
 
+
+// Getting html elements
 var optionBtn = document.getElementById('option');
 var handTrackBtn = document.getElementById('handTrack');
 var invertcolorBtn = document.getElementById('invert_colors');

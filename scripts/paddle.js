@@ -95,12 +95,23 @@ class Paddle // the thing the player controls
         }
     }
 
+
+    /**
+     * API call to get hand data from python server
+     * @pre Assumes hand data is being tracked to server
+     * @post gets the data from the hand tracker
+     */
     async fetchHandPosition() {
       const response = await fetch('http://localhost:8000/handDataRead')
       const data = await response.json()
       return data
     }
 
+    /**
+     * Function to update the hand data
+     * @pre Assumes hand data is correctly tracking
+     * @post Updates the paddle location based on hand data
+     */
     updateHandData(){
       this.fetchHandPosition()
         .then(dataRaw => {
