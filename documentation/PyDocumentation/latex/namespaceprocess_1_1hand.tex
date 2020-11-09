@@ -1,0 +1,354 @@
+\hypertarget{namespaceprocess_1_1hand}{}\doxysection{process.\+hand Namespace Reference}
+\label{namespaceprocess_1_1hand}\index{process.hand@{process.hand}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a9003361441b2dd64d1d455bf1bea0e4b}{draw\+\_\+rect}} (frame)
+\begin{DoxyCompactList}\small\item\em Draws green rectanges on frame for hand-\/scan. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a725107d15fa8af6d48a51ad0970a3bc0}{get\+\_\+rectangles}} (frame)
+\begin{DoxyCompactList}\small\item\em Creates 4x3 matrix of rectangles from frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a36df0ab86975c48f94954b6ce8e71b6c}{get\+\_\+regions\+Of\+Interest}} (frame, rectangles)
+\begin{DoxyCompactList}\small\item\em Constructs image consisting of pixels from within the rectangles drawn on the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a3f74bae7cc1de6f409ecd8dc14226dc0}{get\+\_\+rect\+Shape}} (rectangles)
+\begin{DoxyCompactList}\small\item\em Gets the shape of a rectangle from the rectangles matrix. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_ad49fa23f5ef77065ce3e0d9625861895}{get\+\_\+hand\+Hist}} (frame, rectangles)
+\begin{DoxyCompactList}\small\item\em Constructs normalized histogram of pixels from the rectangles within the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a1483dfe32ebe77ddaa732c1521f7b2b8}{get\+Hand\+Img}} (frame, hand\+Hist)
+\begin{DoxyCompactList}\small\item\em Creates masked hand image. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_abde905c7891a5071c2db65305c98adbf}{get\+Contours}} (img\+Masked)
+\begin{DoxyCompactList}\small\item\em Extracts contours from masked hand image. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_aaf7f460bda3715e899a6e144abb57d5e}{get\+Centroid}} (contour)
+\begin{DoxyCompactList}\small\item\em Computes the centroid of a contour. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_ada731a9c6664d7bb68b0560e6c7a9e57}{get\+Furthest\+Point}} (contour\+Defects, contour, centroid)
+\begin{DoxyCompactList}\small\item\em Computes the furthest point of a contour from its centroid. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a1182f3a39dbbbdc36b9cf39370ea7624}{draw\+P\+OI}} (frame, hand\+Hist)
+\begin{DoxyCompactList}\small\item\em Draws the points of interest on the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a8049c7c6e5445755fe91a2de8a8ec66a}{get\+P\+OI}} (frame, hand\+Hist)
+\begin{DoxyCompactList}\small\item\em Computes the points of interest of the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a64410bae99ce4b94a4ad054dcc2c0fe4}{get\+Data\+Dict}} (hand\+Centroid, finger\+Tip, frame)
+\begin{DoxyCompactList}\small\item\em Creates data dictionary from hand features and frame shape data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a9003361441b2dd64d1d455bf1bea0e4b}\label{namespaceprocess_1_1hand_a9003361441b2dd64d1d455bf1bea0e4b}} 
+\index{process.hand@{process.hand}!draw\_rect@{draw\_rect}}
+\index{draw\_rect@{draw\_rect}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{draw\_rect()}{draw\_rect()}}
+{\footnotesize\ttfamily def process.\+hand.\+draw\+\_\+rect (\begin{DoxyParamCaption}\item[{}]{frame }\end{DoxyParamCaption})}
+
+
+
+Draws green rectanges on frame for hand-\/scan. 
+
+\begin{DoxyPrecond}{Precondition}
+rectangle positions are within frame shape 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & frame from video stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+draws green rectangles on frame 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+frame original frame with green rectangles drawn 
+\end{DoxyReturn}
+
+
+Definition at line 9 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a1182f3a39dbbbdc36b9cf39370ea7624}\label{namespaceprocess_1_1hand_a1182f3a39dbbbdc36b9cf39370ea7624}} 
+\index{process.hand@{process.hand}!drawPOI@{drawPOI}}
+\index{drawPOI@{drawPOI}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{drawPOI()}{drawPOI()}}
+{\footnotesize\ttfamily def process.\+hand.\+draw\+P\+OI (\begin{DoxyParamCaption}\item[{}]{frame,  }\item[{}]{hand\+Hist }\end{DoxyParamCaption})}
+
+
+
+Draws the points of interest on the frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & frame from video stream \\
+\hline
+{\em hand\+Hist} & normalized histogram of hand pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+frame frame with drawn points of interest (centroid and furthest point) 
+\end{DoxyReturn}
+
+
+Definition at line 201 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_ad49fa23f5ef77065ce3e0d9625861895}\label{namespaceprocess_1_1hand_ad49fa23f5ef77065ce3e0d9625861895}} 
+\index{process.hand@{process.hand}!get\_handHist@{get\_handHist}}
+\index{get\_handHist@{get\_handHist}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{get\_handHist()}{get\_handHist()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+\_\+hand\+Hist (\begin{DoxyParamCaption}\item[{}]{frame,  }\item[{}]{rectangles }\end{DoxyParamCaption})}
+
+
+
+Constructs normalized histogram of pixels from the rectangles within the frame. 
+
+\begin{DoxyPrecond}{Precondition}
+frame consists of hand-\/scan using rectangles 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & frame from video stream \\
+\hline
+{\em rectangles} & 4x3 matrix of rectangles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hand\+Hist\+Norm normalized histogram from hand pixels 
+\end{DoxyReturn}
+
+
+Definition at line 96 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a725107d15fa8af6d48a51ad0970a3bc0}\label{namespaceprocess_1_1hand_a725107d15fa8af6d48a51ad0970a3bc0}} 
+\index{process.hand@{process.hand}!get\_rectangles@{get\_rectangles}}
+\index{get\_rectangles@{get\_rectangles}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{get\_rectangles()}{get\_rectangles()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+\_\+rectangles (\begin{DoxyParamCaption}\item[{}]{frame }\end{DoxyParamCaption})}
+
+
+
+Creates 4x3 matrix of rectangles from frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & frame from video stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+rectangles are created using start and end coordinates 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+rectangles 4x3 matrix of rectangles 
+\end{DoxyReturn}
+
+
+Definition at line 25 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a3f74bae7cc1de6f409ecd8dc14226dc0}\label{namespaceprocess_1_1hand_a3f74bae7cc1de6f409ecd8dc14226dc0}} 
+\index{process.hand@{process.hand}!get\_rectShape@{get\_rectShape}}
+\index{get\_rectShape@{get\_rectShape}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{get\_rectShape()}{get\_rectShape()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+\_\+rect\+Shape (\begin{DoxyParamCaption}\item[{}]{rectangles }\end{DoxyParamCaption})}
+
+
+
+Gets the shape of a rectangle from the rectangles matrix. 
+
+\begin{DoxyPrecond}{Precondition}
+assumes each rectangle consists of a list of 2-\/tuples 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em rectangles} & 4x3 matrix of rectangles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+width width in pixels 
+
+height height in pixels 
+\end{DoxyReturn}
+
+
+Definition at line 82 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a36df0ab86975c48f94954b6ce8e71b6c}\label{namespaceprocess_1_1hand_a36df0ab86975c48f94954b6ce8e71b6c}} 
+\index{process.hand@{process.hand}!get\_regionsOfInterest@{get\_regionsOfInterest}}
+\index{get\_regionsOfInterest@{get\_regionsOfInterest}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{get\_regionsOfInterest()}{get\_regionsOfInterest()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+\_\+regions\+Of\+Interest (\begin{DoxyParamCaption}\item[{}]{frame,  }\item[{}]{rectangles }\end{DoxyParamCaption})}
+
+
+
+Constructs image consisting of pixels from within the rectangles drawn on the frame. 
+
+\begin{DoxyPrecond}{Precondition}
+rectangles is a 4x3 matrix with coordinates that are within the frame 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & frame from video stream \\
+\hline
+{\em rectangles} & 4x3 matrix of rectangles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+image created using rectangles 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+roi image constructed from frame rectangles 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_aaf7f460bda3715e899a6e144abb57d5e}\label{namespaceprocess_1_1hand_aaf7f460bda3715e899a6e144abb57d5e}} 
+\index{process.hand@{process.hand}!getCentroid@{getCentroid}}
+\index{getCentroid@{getCentroid}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{getCentroid()}{getCentroid()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+Centroid (\begin{DoxyParamCaption}\item[{}]{contour }\end{DoxyParamCaption})}
+
+
+
+Computes the centroid of a contour. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contour} & contour of an image \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+x\+\_\+bar weighted average x-\/coordinate of contour 
+
+y\+\_\+bar weighted average y-\/coordinate of contour 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_abde905c7891a5071c2db65305c98adbf}\label{namespaceprocess_1_1hand_abde905c7891a5071c2db65305c98adbf}} 
+\index{process.hand@{process.hand}!getContours@{getContours}}
+\index{getContours@{getContours}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{getContours()}{getContours()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+Contours (\begin{DoxyParamCaption}\item[{}]{img\+Masked }\end{DoxyParamCaption})}
+
+
+
+Extracts contours from masked hand image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em img\+Masked} & masked image of hand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+contours of masked image 
+\end{DoxyReturn}
+
+
+Definition at line 145 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a64410bae99ce4b94a4ad054dcc2c0fe4}\label{namespaceprocess_1_1hand_a64410bae99ce4b94a4ad054dcc2c0fe4}} 
+\index{process.hand@{process.hand}!getDataDict@{getDataDict}}
+\index{getDataDict@{getDataDict}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{getDataDict()}{getDataDict()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+Data\+Dict (\begin{DoxyParamCaption}\item[{}]{hand\+Centroid,  }\item[{}]{finger\+Tip,  }\item[{}]{frame }\end{DoxyParamCaption})}
+
+
+
+Creates data dictionary from hand features and frame shape data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hand\+Centroid} & x,y-\/coordinates of hand centroid \\
+\hline
+{\em finger\+Tip} & x,y-\/coordinates of finger-\/tip \\
+\hline
+{\em frame} & frame from video stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data dictionary of points of interest of hand and frame shape 
+\end{DoxyReturn}
+
+
+Definition at line 275 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_ada731a9c6664d7bb68b0560e6c7a9e57}\label{namespaceprocess_1_1hand_ada731a9c6664d7bb68b0560e6c7a9e57}} 
+\index{process.hand@{process.hand}!getFurthestPoint@{getFurthestPoint}}
+\index{getFurthestPoint@{getFurthestPoint}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{getFurthestPoint()}{getFurthestPoint()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+Furthest\+Point (\begin{DoxyParamCaption}\item[{}]{contour\+Defects,  }\item[{}]{contour,  }\item[{}]{centroid }\end{DoxyParamCaption})}
+
+
+
+Computes the furthest point of a contour from its centroid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contour\+Defects} & array of contour defects \\
+\hline
+{\em contour} & contour of an image \\
+\hline
+{\em centroid} & x,y-\/coordinates of contour centroid \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+furthest\+Point x,y-\/coordinates of furthest point from centroid to a defect
+\end{DoxyReturn}
+\begin{DoxyVerb} get defect point furthest from centroid
+\end{DoxyVerb}
+ 
+
+Definition at line 173 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a1483dfe32ebe77ddaa732c1521f7b2b8}\label{namespaceprocess_1_1hand_a1483dfe32ebe77ddaa732c1521f7b2b8}} 
+\index{process.hand@{process.hand}!getHandImg@{getHandImg}}
+\index{getHandImg@{getHandImg}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{getHandImg()}{getHandImg()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+Hand\+Img (\begin{DoxyParamCaption}\item[{}]{frame,  }\item[{}]{hand\+Hist }\end{DoxyParamCaption})}
+
+
+
+Creates masked hand image. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & frame from video stream \\
+\hline
+{\em hand\+Hist} & normalized histogram of hand pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+hand\+Img masked hand image
+\end{DoxyReturn}
+\begin{DoxyVerb}hyper-params to tune: 
+    - kernel disc size
+    - threshold value
+    - rectangle matrix shape
+    - color of walls in room where image is taken
+    - camera position and type
+    - image background
+    - hand perspective, orientation, and shape during scan
+    - multiple hand scans at different positions
+    - scan as much of hand as possible
+\end{DoxyVerb}
+ 
+
+Definition at line 113 of file hand.\+py.
+
+\mbox{\Hypertarget{namespaceprocess_1_1hand_a8049c7c6e5445755fe91a2de8a8ec66a}\label{namespaceprocess_1_1hand_a8049c7c6e5445755fe91a2de8a8ec66a}} 
+\index{process.hand@{process.hand}!getPOI@{getPOI}}
+\index{getPOI@{getPOI}!process.hand@{process.hand}}
+\doxysubsubsection{\texorpdfstring{getPOI()}{getPOI()}}
+{\footnotesize\ttfamily def process.\+hand.\+get\+P\+OI (\begin{DoxyParamCaption}\item[{}]{frame,  }\item[{}]{hand\+Hist }\end{DoxyParamCaption})}
+
+
+
+Computes the points of interest of the frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & frame from video stream \\
+\hline
+{\em hand\+Hist} & normalized histogram of hand pixels \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+data dictionary of points of interest of hand and frame shape 
+
+frame frame with drawn points of interest (centroid and furthest point) 
+\end{DoxyReturn}
+
+
+Definition at line 236 of file hand.\+py.
+

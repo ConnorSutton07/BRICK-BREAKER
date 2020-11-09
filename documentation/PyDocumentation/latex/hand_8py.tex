@@ -1,0 +1,34 @@
+\hypertarget{hand_8py}{}\doxysection{process/hand.py File Reference}
+\label{hand_8py}\index{process/hand.py@{process/hand.py}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceprocess_1_1hand}{process.\+hand}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a9003361441b2dd64d1d455bf1bea0e4b}{process.\+hand.\+draw\+\_\+rect}} (frame)
+\begin{DoxyCompactList}\small\item\em Draws green rectanges on frame for hand-\/scan. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a725107d15fa8af6d48a51ad0970a3bc0}{process.\+hand.\+get\+\_\+rectangles}} (frame)
+\begin{DoxyCompactList}\small\item\em Creates 4x3 matrix of rectangles from frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a36df0ab86975c48f94954b6ce8e71b6c}{process.\+hand.\+get\+\_\+regions\+Of\+Interest}} (frame, rectangles)
+\begin{DoxyCompactList}\small\item\em Constructs image consisting of pixels from within the rectangles drawn on the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a3f74bae7cc1de6f409ecd8dc14226dc0}{process.\+hand.\+get\+\_\+rect\+Shape}} (rectangles)
+\begin{DoxyCompactList}\small\item\em Gets the shape of a rectangle from the rectangles matrix. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_ad49fa23f5ef77065ce3e0d9625861895}{process.\+hand.\+get\+\_\+hand\+Hist}} (frame, rectangles)
+\begin{DoxyCompactList}\small\item\em Constructs normalized histogram of pixels from the rectangles within the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a1483dfe32ebe77ddaa732c1521f7b2b8}{process.\+hand.\+get\+Hand\+Img}} (frame, hand\+Hist)
+\begin{DoxyCompactList}\small\item\em Creates masked hand image. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_abde905c7891a5071c2db65305c98adbf}{process.\+hand.\+get\+Contours}} (img\+Masked)
+\begin{DoxyCompactList}\small\item\em Extracts contours from masked hand image. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_aaf7f460bda3715e899a6e144abb57d5e}{process.\+hand.\+get\+Centroid}} (contour)
+\begin{DoxyCompactList}\small\item\em Computes the centroid of a contour. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_ada731a9c6664d7bb68b0560e6c7a9e57}{process.\+hand.\+get\+Furthest\+Point}} (contour\+Defects, contour, centroid)
+\begin{DoxyCompactList}\small\item\em Computes the furthest point of a contour from its centroid. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a1182f3a39dbbbdc36b9cf39370ea7624}{process.\+hand.\+draw\+P\+OI}} (frame, hand\+Hist)
+\begin{DoxyCompactList}\small\item\em Draws the points of interest on the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a8049c7c6e5445755fe91a2de8a8ec66a}{process.\+hand.\+get\+P\+OI}} (frame, hand\+Hist)
+\begin{DoxyCompactList}\small\item\em Computes the points of interest of the frame. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespaceprocess_1_1hand_a64410bae99ce4b94a4ad054dcc2c0fe4}{process.\+hand.\+get\+Data\+Dict}} (hand\+Centroid, finger\+Tip, frame)
+\begin{DoxyCompactList}\small\item\em Creates data dictionary from hand features and frame shape data. \end{DoxyCompactList}\end{DoxyCompactItemize}

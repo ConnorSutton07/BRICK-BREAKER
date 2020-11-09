@@ -1,0 +1,149 @@
+\hypertarget{namespacetest}{}\doxysection{test Namespace Reference}
+\label{namespacetest}\index{test@{test}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacetest_af77267a7709961905280a78fe00722a0}{view\+Arr\+Sizes}} ()
+\begin{DoxyCompactList}\small\item\em Prints 3D data for testing its shape and indexing properties. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetest_a341d6d6ff289ff580353ab643ce7909e}{view\+R\+OI}} ()
+\begin{DoxyCompactList}\small\item\em Displays regions of interest extracted from hand-\/scan rectangles. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetest_ab9007980ef58e83c240f02c9edabafaa}{get\+Pixel\+Shape}} (rectangles)
+\begin{DoxyCompactList}\small\item\em Extracts start and end coordinates of a rectangle from rectangles matrix. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetest_ac8da26599c86c34e962db7266150e695}{view\+Hand\+Img}} ()
+\begin{DoxyCompactList}\small\item\em Displays masked hand image. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetest_ac3d5237868c56d4d0efa5b1682ee7bc8}{view\+Contours}} ()
+\begin{DoxyCompactList}\small\item\em Displays contour of hand in green and hand centroid. \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetest_a897193dea7d3d3ee3d7a54e63c113e3a}{view\+P\+OI}} ()
+\begin{DoxyCompactList}\small\item\em Displays points of interest on frame (centroid, fingertip, and contours) \end{DoxyCompactList}\item 
+def \mbox{\hyperlink{namespacetest_ae411bebfac562c3054adb777f942478e}{run}} ()
+\begin{DoxyCompactList}\small\item\em Runs programs which test whether features are correctly computed and displayed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacetest_ab9007980ef58e83c240f02c9edabafaa}\label{namespacetest_ab9007980ef58e83c240f02c9edabafaa}} 
+\index{test@{test}!getPixelShape@{getPixelShape}}
+\index{getPixelShape@{getPixelShape}!test@{test}}
+\doxysubsubsection{\texorpdfstring{getPixelShape()}{getPixelShape()}}
+{\footnotesize\ttfamily def test.\+get\+Pixel\+Shape (\begin{DoxyParamCaption}\item[{}]{rectangles }\end{DoxyParamCaption})}
+
+
+
+Extracts start and end coordinates of a rectangle from rectangles matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rectangles} & 4x3 matrix of rectangles \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+2-\/tuple of start and end coordinates of 0th rectangle 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file test.\+py.
+
+\mbox{\Hypertarget{namespacetest_ae411bebfac562c3054adb777f942478e}\label{namespacetest_ae411bebfac562c3054adb777f942478e}} 
+\index{test@{test}!run@{run}}
+\index{run@{run}!test@{test}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def test.\+run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Runs programs which test whether features are correctly computed and displayed. 
+
+\begin{DoxyPrecond}{Precondition}
+webcam available 
+\end{DoxyPrecond}
+
+
+Definition at line 149 of file test.\+py.
+
+\mbox{\Hypertarget{namespacetest_af77267a7709961905280a78fe00722a0}\label{namespacetest_af77267a7709961905280a78fe00722a0}} 
+\index{test@{test}!viewArrSizes@{viewArrSizes}}
+\index{viewArrSizes@{viewArrSizes}!test@{test}}
+\doxysubsubsection{\texorpdfstring{viewArrSizes()}{viewArrSizes()}}
+{\footnotesize\ttfamily def test.\+view\+Arr\+Sizes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints 3D data for testing its shape and indexing properties. 
+
+\begin{DoxyPostcond}{Postcondition}
+prints 3D data for testing 
+\end{DoxyPostcond}
+
+
+Definition at line 7 of file test.\+py.
+
+\mbox{\Hypertarget{namespacetest_ac3d5237868c56d4d0efa5b1682ee7bc8}\label{namespacetest_ac3d5237868c56d4d0efa5b1682ee7bc8}} 
+\index{test@{test}!viewContours@{viewContours}}
+\index{viewContours@{viewContours}!test@{test}}
+\doxysubsubsection{\texorpdfstring{viewContours()}{viewContours()}}
+{\footnotesize\ttfamily def test.\+view\+Contours (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays contour of hand in green and hand centroid. 
+
+\begin{DoxyPrecond}{Precondition}
+webcam available 
+\end{DoxyPrecond}
+
+
+Definition at line 81 of file test.\+py.
+
+\mbox{\Hypertarget{namespacetest_ac8da26599c86c34e962db7266150e695}\label{namespacetest_ac8da26599c86c34e962db7266150e695}} 
+\index{test@{test}!viewHandImg@{viewHandImg}}
+\index{viewHandImg@{viewHandImg}!test@{test}}
+\doxysubsubsection{\texorpdfstring{viewHandImg()}{viewHandImg()}}
+{\footnotesize\ttfamily def test.\+view\+Hand\+Img (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays masked hand image. 
+
+\begin{DoxyPrecond}{Precondition}
+webcam available 
+\end{DoxyPrecond}
+
+
+Definition at line 51 of file test.\+py.
+
+\mbox{\Hypertarget{namespacetest_a897193dea7d3d3ee3d7a54e63c113e3a}\label{namespacetest_a897193dea7d3d3ee3d7a54e63c113e3a}} 
+\index{test@{test}!viewPOI@{viewPOI}}
+\index{viewPOI@{viewPOI}!test@{test}}
+\doxysubsubsection{\texorpdfstring{viewPOI()}{viewPOI()}}
+{\footnotesize\ttfamily def test.\+view\+P\+OI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays points of interest on frame (centroid, fingertip, and contours) 
+
+\begin{DoxyPrecond}{Precondition}
+webcam available 
+\end{DoxyPrecond}
+
+
+Definition at line 122 of file test.\+py.
+
+\mbox{\Hypertarget{namespacetest_a341d6d6ff289ff580353ab643ce7909e}\label{namespacetest_a341d6d6ff289ff580353ab643ce7909e}} 
+\index{test@{test}!viewROI@{viewROI}}
+\index{viewROI@{viewROI}!test@{test}}
+\doxysubsubsection{\texorpdfstring{viewROI()}{viewROI()}}
+{\footnotesize\ttfamily def test.\+view\+R\+OI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays regions of interest extracted from hand-\/scan rectangles. 
+
+\begin{DoxyPrecond}{Precondition}
+webcam available 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Displays regions of interest as image on window 
+\end{DoxyPostcond}
+
+
+Definition at line 14 of file test.\+py.
+
