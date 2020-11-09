@@ -1,6 +1,11 @@
 import numpy as np
 import cv2
 
+## Draws green rectanges on frame for hand-scan
+#  @pre rectangle positions are within frame shape
+#  @param frame frame from video stream
+#  @post draws green rectangles on frame
+#  @return frame original frame with green rectangles drawn
 def draw_rect(frame):
     rectangles = get_rectangles(frame)
     color = (0, 255, 0)
@@ -13,6 +18,10 @@ def draw_rect(frame):
             frame = cv2.rectangle(frame, start_point, end_point, color, thickness)
     return frame
 
+## Creates 4x3 matrix of rectangles from frame
+#  @param frame frame from video stream
+#  @post rectangles are created using start and end coordinates
+#  @return rectangles 4x3 matrix of rectangles
 def get_rectangles(frame):
     rows, cols, chans = frame.shape
     center_frame = (int(round(cols/2)), int(round(rows/2)))
@@ -40,6 +49,12 @@ def get_rectangles(frame):
 
     return rectangles
 
+## Constructs image consisting of pixels from within the rectangles drawn on the frame
+#  @pre rectangles is a 4x3 matrix with coordinates that are within the frame 
+#  @param frame frame from video stream
+#  @param rectangles 4x3 matrix of rectangles
+#  @post image created using rectangles
+#  @return roi image constructed from frame rectangles
 def get_regionsOfInterest(frame, rectangles):
     hsvFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     width, height = get_rectShape(rectangles)
@@ -59,9 +74,12 @@ def get_regionsOfInterest(frame, rectangles):
 
     return roi
 
-
+## Gets the shape of a rectangle from the rectangles matrix
+#  @pre assumes each rectangle consists of a list of 2-tuples 
+#  @param rectangles 4x3 matrix of rectangles
+#  @return width width in pixels
+#  @return height height in pixels
 def get_rectShape(rectangles):
-
     one_rectangle = rectangles[0][0]
     startCoord = one_rectangle[0]
     endCoord = one_rectangle[1]
@@ -70,6 +88,11 @@ def get_rectShape(rectangles):
 
     return width, height
 
+## Constructs normalized histogram of pixels from the rectangles within the frame
+#  @pre frame consists of hand-scan using rectangles
+#  @param frame frame from video stream
+#  @param rectangles 4x3 matrix of rectangles
+#  @return handHistNorm normalized histogram from hand pixels
 def get_handHist(frame, rectangles):
     roi = get_regionsOfInterest(frame, rectangles)
 
@@ -83,6 +106,10 @@ def get_handHist(frame, rectangles):
 
     return handHistNorm
 
+## Creates masked hand image
+#  @param frame frame from video stream
+#  @param handHist normalized histogram of hand pixels
+#  @return handImg masked hand image
 def getHandImg(frame, handHist):
     """
     hyper-params to tune: 
@@ -112,6 +139,9 @@ def getHandImg(frame, handHist):
 
     return handImg
 
+## Extracts contours from masked hand image
+#  @param imgMasked masked image of hand
+#  @return contours of masked image
 def getContours(imgMasked):
     grayHist = cv2.cvtColor(imgMasked, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(grayHist, 0, 255, cv2.THRESH_BINARY)
@@ -119,6 +149,10 @@ def getContours(imgMasked):
 
     return contours
 
+## Computes the centroid of a contour
+#  @param contour contour of an image
+#  @return x_bar weighted average x-coordinate of contour
+#  @return y_bar weighted average y-coordinate of contour
 def getCentroid(contour):
     moments = cv2.moments(contour)
 
@@ -131,6 +165,11 @@ def getCentroid(contour):
 
     return x_bar, y_bar
 
+## Computes the furthest point of a contour from its centroid
+#  @param contourDefects array of contour defects
+#  @param contour contour of an image
+#  @param centroid x,y-coordinates of contour centroid
+#  @return furthestPoint x,y-coordinates of furthest point from centroid to a defect
 def getFurthestPoint(contourDefects, contour, centroid):
     """ get defect point furthest from centroid
     """
@@ -155,6 +194,10 @@ def getFurthestPoint(contourDefects, contour, centroid):
 
     return furthestPoint
 
+## Draws the points of interest on the frame
+#  @param frame frame from video stream
+#  @param handHist normalized histogram of hand pixels
+#  @return frame frame with drawn points of interest (centroid and furthest point)
 def drawPOI(frame, handHist):
     handImg = getHandImg(frame, handHist)
     contours = getContours(handImg)
@@ -185,6 +228,11 @@ def drawPOI(frame, handHist):
     finally:
         return frame
 
+## Computes the points of interest of the frame
+#  @param frame frame from video stream
+#  @param handHist normalized histogram of hand pixels
+#  @return data dictionary of points of interest of hand and frame shape
+#  @return frame frame with drawn points of interest (centroid and furthest point)
 def getPOI(frame, handHist):
     frame = cv2.flip(frame, 1)
     handImg = getHandImg(frame, handHist)
@@ -219,6 +267,11 @@ def getPOI(frame, handHist):
     finally:
         return data, frame
 
+## Creates data dictionary from hand features and frame shape data
+#  @param handCentroid x,y-coordinates of hand centroid
+#  @param fingerTip x,y-coordinates of finger-tip
+#  @param frame frame from video stream
+#  @return data dictionary of points of interest of hand and frame shape
 def getDataDict(handCentroid, fingerTip, frame):
     data = {'handCentroid_x': int(handCentroid[0]),
             'handCentroid_y': int(handCentroid[1]),
@@ -228,3 +281,6 @@ def getDataDict(handCentroid, fingerTip, frame):
             'frame_y': int(frame.shape[0])}
 
     return data
+
+## Source of help: https://medium.com/@amarpandey/finger-detection-and-tracking-using-opencv-and-python-363ac451c00d
+#

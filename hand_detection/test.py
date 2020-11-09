@@ -2,10 +2,15 @@ import numpy as np
 import cv2
 import process.hand as hp
 
+## Prints 3D data for testing its shape and indexing properties
+#  @post prints 3D data for testing
 def viewArrSizes():
     roi = np.zeros([90,10,3]) #90 matrices of size 10 rows x 3 cols
     print(roi)
 
+## Displays regions of interest extracted from hand-scan rectangles
+#  @pre webcam available
+#  @post Displays regions of interest as image on window
 def viewROI():
     capture = cv2.VideoCapture(0)
 
@@ -31,6 +36,9 @@ def viewROI():
     capture.release()
     cv2.destroyAllWindows()
     
+## Extracts start and end coordinates of a rectangle from rectangles matrix
+#  @param rectangles 4x3 matrix of rectangles
+#  @return 2-tuple of start and end coordinates of 0th rectangle
 def getPixelShape(rectangles):
     one_rectangle = rectangles[0][0]
     startCoord = one_rectangle[0]
@@ -38,6 +46,8 @@ def getPixelShape(rectangles):
 
     return (startCoord, endCoord)
 
+## Displays masked hand image
+#  @pre webcam available
 def viewHandImg():
     capture = cv2.VideoCapture(0)
 
@@ -66,6 +76,8 @@ def viewHandImg():
     capture.release()
     cv2.destroyAllWindows()
 
+## Displays contour of hand in green and hand centroid
+#  @pre webcam available
 def viewContours():
     capture = cv2.VideoCapture(0)
 
@@ -104,6 +116,9 @@ def viewContours():
     capture.release()
     cv2.destroyAllWindows()
 
+
+## Displays points of interest on frame (centroid, fingertip, and contours)
+#  @pre webcam available
 def viewPOI():
     capture = cv2.VideoCapture(0)
     isHandHist = False
@@ -129,6 +144,8 @@ def viewPOI():
     capture.release()
     cv2.destroyAllWindows()
 
+## Runs programs which test whether features are correctly computed and displayed
+#  @pre webcam available
 def run():
     viewROI()
     viewHandImg()

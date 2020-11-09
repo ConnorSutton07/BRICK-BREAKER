@@ -3,6 +3,9 @@ import numpy as np
 import process.hand as hp
 import json
 
+## Scans hand, streams hand data to txt file, and displays live-tracking 
+#  @pre assumes data is in dictionary format
+#  @post data in txt file overwritten
 def main():
     capture = cv2.VideoCapture(0)
     isHandHist = False
