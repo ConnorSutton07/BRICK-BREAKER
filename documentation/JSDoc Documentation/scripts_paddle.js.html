@@ -36,11 +36,21 @@
      */
     constructor()
     {
-        this.width = PADDLE_WIDTH; // width of paddle
+        this.width_size = 1;
+        this.init_width = 1 * PADDLE_WIDTH;
+        this.width = PADDLE_WIDTH * this.width_size; // width of paddle
         this.height = PADDLE_HEIGHT; // height of paddle
         this.x = canvas.width / 2;  // initial x position
         this.y = canvas.height - this.height; // initial y position
-    }
+
+        this.handData = JSON.parse(JSON.stringify(
+                      {"handCentroid_x": 0,
+                        "handCentroid_y": 0,
+                        "fingerTip_x": 0,
+                        "fingerTip_y": 0,
+                        "frame_x": 0,
+                        "frame_y": 0}))
+      }
 
     /**
      * Updates the paddle position on screen
@@ -49,8 +59,9 @@
      */
     update()
     {
-        if (mouse.x != undefined) 
-        {
+        if(handTrackEnabled){
+          this.updateHandData()
+        } else if (mouse.x != undefined){
             this.x = Math.min(Math.max(mouse.x - (this.width / 2), 0), canvas.width - this.width); // move paddle based on mouse position if it is defined (it is undefined until it moves)
         }
     }
@@ -71,9 +82,76 @@
      * @Post resets paddle's location to center of screen
      */
     resetPaddle(){
+      this.width_size = 1;
+      this.init_width = 1 * PADDLE_WIDTH; 
       this.x = canvas.width / 2;  // initial x position
       this.y = canvas.height - this.height; // initial y position
+      this.width = PADDLE_WIDTH * this.width_size; // width of paddle
+      this.height = PADDLE_HEIGHT; //height of paddle
+    }
 
+
+    /**
+     * @Pre The window has been resized, and an event listener has called this method
+     * @Post The paddle's size and y-position will be updated to correspond with the new window size
+     */
+    resize()
+    {
+        this.init_width = 1 * PADDLE_WIDTH;
+        this.width = PADDLE_WIDTH * this.width_size; // width of paddle
+        this.height = PADDLE_HEIGHT; // height of paddle
+        this.y = canvas.height - this.height; // initial y position
+    }
+
+    /**
+     * Function to detect collisions with items, removes the power from the array of powers if there is a collision with the paddle.
+     * @Pre Assumes powers are initialized correctly
+     * @Post Removes the power from the array of powers when collides with the paddle
+     */
+
+    detect_collision(Powers)
+    {
+        for(let i = 0; i&lt;Powers.fallings; i++){
+            if (Powers.powers[i].x &lt; this.x + this.width
+                &amp;&amp; Powers.powers[i].x + Powers.powers[i].power_width > this.x
+                &amp;&amp; Powers.powers[i].y &lt; this.y + this.height
+                &amp;&amp; Powers.powers[i].y + Powers.powers[i].power_height > this.y)
+                {
+                    console.log("item has hit paddle");
+                    Powers.powers.splice(i, 1);
+                }
+        }
+    }
+
+
+    /**
+     * API call to get hand data from python server
+     * @pre Assumes hand data is being tracked to server
+     * @post gets the data from the hand tracker
+     */
+    async fetchHandPosition() {
+      const response = await fetch('http://localhost:8000/handDataRead')
+      const data = await response.json()
+      return data
+    }
+
+    /**
+     * Function to update the hand data
+     * @pre Assumes hand data is correctly tracking
+     * @post Updates the paddle location based on hand data
+     */
+    updateHandData(){
+      this.fetchHandPosition()
+        .then(dataRaw => {
+          let data = JSON.parse(dataRaw)
+          this.handData = data
+        })
+        .catch(dataRaw => {dataRaw})
+
+      if(this.handData.handCentroid_x > 0){
+        let handPos_x =  (this.handData.handCentroid_x / this.handData.frame_x) * canvas.width
+        this.x = Math.min(Math.max(handPos_x - (this.width / 2), 0), canvas.width - this.width); 
+      }
     }
 }
 </code></pre>
@@ -86,13 +164,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aim.html">Aim</a></li><li><a href="Ball.html">Ball</a></li><li><a href="Brickset.html">Brickset</a></li><li><a href="Life.html">Life</a></li><li><a href="Lives.html">Lives</a></li><li><a href="Paddle.html">Paddle</a></li><li><a href="PlayerStatus.html">PlayerStatus</a></li><li><a href="Score.html">Score</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ani">ani</a></li><li><a href="global.html#bak">bak</a></li><li><a href="global.html#bmain_l">bmain_l</a></li><li><a href="global.html#bmain_w">bmain_w</a></li><li><a href="global.html#inv">inv</a></li><li><a href="global.html#opt">opt</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#resume">resume</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aim.html">Aim</a></li><li><a href="Ball.html">Ball</a></li><li><a href="BallContainer.html">BallContainer</a></li><li><a href="Brickset.html">Brickset</a></li><li><a href="Brickset_Resizer.html">Brickset_Resizer</a></li><li><a href="Life.html">Life</a></li><li><a href="Lives.html">Lives</a></li><li><a href="Paddle.html">Paddle</a></li><li><a href="PlayerStatus.html">PlayerStatus</a></li><li><a href="Powers.html">Powers</a></li><li><a href="Score.html">Score</a></li><li><a href="StartScreenBall.html">StartScreenBall</a></li><li><a href="testSuite.html">testSuite</a></li></ul><h3>Global</h3><ul><li><a href="global.html#animate">animate</a></li><li><a href="global.html#bak">bak</a></li><li><a href="global.html#bmain_l">bmain_l</a></li><li><a href="global.html#bmain_w">bmain_w</a></li><li><a href="global.html#displayNotification">displayNotification</a></li><li><a href="global.html#drawStartScreen">drawStartScreen</a></li><li><a href="global.html#fetchScan">fetchScan</a></li><li><a href="global.html#handTrack">handTrack</a></li><li><a href="global.html#inv">inv</a></li><li><a href="global.html#nextlevel">nextlevel</a></li><li><a href="global.html#opt">opt</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#setRandomColor">setRandomColor</a></li><li><a href="global.html#start">start</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Oct 25 2020 15:48:53 GMT-0500 (Central Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Nov 08 2020 18:43:57 GMT-0600 (Central Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

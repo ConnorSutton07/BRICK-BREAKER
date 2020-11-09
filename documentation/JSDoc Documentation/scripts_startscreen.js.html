@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: scripts/startscreen.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: scripts/startscreen.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>class StartScreenBall
+{
+    /**
+     * @Pre a StartScreenBall has been instantiated
+     * @Post gives the ball the appropriate properties based on the canvas size
+     */
+    constructor()
+    {
+        this.x = (Math.random() * canvas.width / 2) + canvas.width / 4;
+        this.y = (Math.random() * canvas.height / 2) + canvas.height / 4;
+        this.dx = canvas.width / 300;
+        this.dy = canvas.height / 300;
+        this.radius = canvas.height / 40;
+    }
+
+    /**
+     * @Pre the game has not yet started (the PLAY button has not been pressed)
+     * @Post moved the ball around the canvas
+     */
+    update()
+    {
+        if (this.x + this.radius + this.dx >= canvas.width || this.x - this.radius&lt;= 0) this.dx *= -1;
+        this.x += this.dx;
+
+        if (this.y + this.radius + this.dy >= canvas.height || this.y - this.radius&lt;= 0) this.dy *= -1;
+        this.y += this.dy;
+
+        this.draw();
+    }
+
+    /**
+     * @Pre the game has not yet started (the PLAY button has not been pressed)
+     * @Post draws the ball at its position
+     */
+    draw()
+    {
+        ctx.beginPath();
+        ctx.fillStyle = "#FA8072";
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        ctx.fill();
+    }
+}
+let startBall = new StartScreenBall;
+
+/**
+ * @Pre the game has not yet started (the PLAY button has not been pressed)
+ * @Post draws polygons attached to the ball
+ */
+function drawStartScreen()
+{
+
+    ctx.fillStyle = "#00BFFF";
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(canvas.width / 5, 0);
+    //ctx.lineTo(canvas.width * (3/5), canvas.height * (3/4));
+    ctx.lineTo(startBall.x, startBall.y);
+    ctx.lineTo(0, canvas.height / 2);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.fillStyle = "#DAA520";
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 5, 0);
+    //ctx.lineTo(canvas.width * (3/5), canvas.height * (3/4));
+    ctx.lineTo(startBall.x, startBall.y);
+    ctx.lineTo(canvas.width * (2/5), 0);
+    ctx.closePath();
+    ctx.fill();
+    
+    ctx.fillStyle = "#90EE90";
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height / 2);
+    //ctx.lineTo(canvas.width * (3/5), canvas.height * (3/4));
+    ctx.lineTo(startBall.x, startBall.y);
+    ctx.lineTo(canvas.width * (2/5), canvas.height);
+    ctx.lineTo(0, canvas.height);
+    ctx.closePath();
+    ctx.fill();
+
+    
+    ctx.fillStyle = "#CD5C5C";
+    ctx.beginPath();
+    ctx.moveTo(canvas.width * (2/5), 0)
+    //ctx.lineTo(canvas.width * (3/5), canvas.height * (3/4));
+    ctx.lineTo(startBall.x, startBall.y);
+    ctx.lineTo(canvas.width, canvas.height / 2);
+    ctx.lineTo(canvas.width, 0);
+    ctx.fill();
+
+}
+
+drawStartScreen();</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Aim.html">Aim</a></li><li><a href="Ball.html">Ball</a></li><li><a href="BallContainer.html">BallContainer</a></li><li><a href="Brickset.html">Brickset</a></li><li><a href="Brickset_Resizer.html">Brickset_Resizer</a></li><li><a href="Life.html">Life</a></li><li><a href="Lives.html">Lives</a></li><li><a href="Paddle.html">Paddle</a></li><li><a href="PlayerStatus.html">PlayerStatus</a></li><li><a href="Powers.html">Powers</a></li><li><a href="Score.html">Score</a></li><li><a href="StartScreenBall.html">StartScreenBall</a></li><li><a href="testSuite.html">testSuite</a></li></ul><h3>Global</h3><ul><li><a href="global.html#animate">animate</a></li><li><a href="global.html#bak">bak</a></li><li><a href="global.html#bmain_l">bmain_l</a></li><li><a href="global.html#bmain_w">bmain_w</a></li><li><a href="global.html#displayNotification">displayNotification</a></li><li><a href="global.html#drawStartScreen">drawStartScreen</a></li><li><a href="global.html#fetchScan">fetchScan</a></li><li><a href="global.html#handTrack">handTrack</a></li><li><a href="global.html#inv">inv</a></li><li><a href="global.html#nextlevel">nextlevel</a></li><li><a href="global.html#opt">opt</a></li><li><a href="global.html#reset">reset</a></li><li><a href="global.html#resume">resume</a></li><li><a href="global.html#setRandomColor">setRandomColor</a></li><li><a href="global.html#start">start</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sun Nov 08 2020 18:43:57 GMT-0600 (Central Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
