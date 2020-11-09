@@ -150,7 +150,7 @@ window.addEventListener('keydown', e => {
 
 /**
  * Mouse event listener that detects if user moves mouse
- * @Pre mouse has been moved
+ * @Pre mouse has been moved and hand-tracker is disabled
  * @Post updates variable keeping track of mouse, which will update paddle's position
  */ 
 window.addEventListener('mousemove', // window will call this function every time the mouse moves, updating its position

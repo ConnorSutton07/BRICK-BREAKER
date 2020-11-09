@@ -1,23 +1,27 @@
+// init modules
 const express = require('express')
 const path = require('path')
 const { spawn } = require('child_process')
 
+// config app for serving static files
 const app = express();
 app.use('/scripts', express.static(path.join(__dirname, 'scripts')))
 app.use('/assets', express.static(path.join(__dirname, 'assets')))
 app.use('/hand_detection', express.static(path.join(__dirname, 'hand_detection')))
-
 app.use('', express.static(path.join(__dirname)))
 
+// serves index.html when http://localhost:8000 requested
 app.get('/', (req, res)=>{
 	res.sendFile(path.join(__dirname,'index.html'))
 })
 
+// executes python hand-data streamer when http://localhost:8000/handDataStream requested
 app.get('/handDataStream', (req, res)=>{
 	const childPy = spawn('python3', ['hand_detection/handDataStreamer.py'])
   res.end()
 })
 
+// executes python hand-data reader when http://localhost:8000/handDataRead requested
 app.get('/handDataRead', (req, res)=>{
 	const childPy = spawn('python3', ['hand_detection/handDataReader.py'])
 
@@ -32,4 +36,5 @@ app.get('/handDataRead', (req, res)=>{
 	})
 })
 
+// listen for requests made on port 8000
 app.listen(8000)

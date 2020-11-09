@@ -85,7 +85,11 @@ var inv = function InvertColors()
   }
 
 }
-
+/**
+ * Toggle hand-tracking 
+ * @Pre assumes user has python3, numpy, opencv, and is running server using nodejs 
+ * @Post toggles settings button and sets hand-tracking logic value
+ */
 let handTrack = function track(){
   let text = handTrackBtn.innerText
   if(text == 'Enable Tracking'){
@@ -100,6 +104,11 @@ let handTrack = function track(){
   }
 }
 
+/**
+ * runs asynchronous function that requests execution of hand-tracking streamer program
+ * @Pre assumes user has python3, numpy, opencv, and is running server using nodejs 
+ * @Post streams hand-data to txt file in local dir
+ */
 async function fetchScan() {
   const response = await fetch('http://localhost:8000/handDataStream')
   return response
