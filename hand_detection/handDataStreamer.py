@@ -26,7 +26,6 @@ def main():
             fileData.write(data)
             fileData.close()
 
-            #frame = hp.drawPOI(frame, handHist)
             cv2.imshow('Hand-tracker: END STREAM WITH \'q\'', frame)
         else:
             frame = hp.draw_rect(frame)

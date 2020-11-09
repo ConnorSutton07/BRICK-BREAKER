@@ -90,7 +90,6 @@ def viewContours():
                 centroidColor = [255, 0, 0] 
                 lineThickness = -1 #fill circle with -1 value
                 cv2.circle(frame, handCentroid, radius, centroidColor, lineThickness)
-                #cv2.drawContours(frame, contours, -1, [0, 0, 255], 3)
                 cv2.imshow('Contours', frame)
                 ret, frame = capture.read()
                 pressed_key = cv2.waitKey(1)
@@ -131,9 +130,9 @@ def viewPOI():
     cv2.destroyAllWindows()
 
 def run():
-    #viewROI()
-    #viewHandImg()
-    #viewContours()
+    viewROI()
+    viewHandImg()
+    viewContours()
     viewPOI()
 
 run()

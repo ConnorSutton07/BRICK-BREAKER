@@ -115,7 +115,6 @@ def getHandImg(frame, handHist):
 def getContours(imgMasked):
     grayHist = cv2.cvtColor(imgMasked, cv2.COLOR_BGR2GRAY)
     ret, thresh = cv2.threshold(grayHist, 0, 255, cv2.THRESH_BINARY)
-    #contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE) #original line
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     return contours
@@ -159,7 +158,6 @@ def getFurthestPoint(contourDefects, contour, centroid):
 def drawPOI(frame, handHist):
     handImg = getHandImg(frame, handHist)
     contours = getContours(handImg)
-    #cv2.drawContours(frame, contours, -1, [0, 255, 0], 3)
 
     try: 
         largestContour = max(contours, key=cv2.contourArea) #hand outline
@@ -175,7 +173,6 @@ def drawPOI(frame, handHist):
         #get fingerTipPoint
         if largestContour.any(): 
             handHull = cv2.convexHull(largestContour, returnPoints=False)
-            #cv2.drawContours(frame, handHull, -1, [255, 255, 255], 3) #TODO draw handHull
             handDefects = cv2.convexityDefects(largestContour, handHull)
             fingerTipPoint = getFurthestPoint(handDefects, largestContour, handCentroid)
 
@@ -209,15 +206,6 @@ def getPOI(frame, handHist):
         lineThickness = -1 #fill circle with -1 value
         cv2.circle(frame, handCentroid, radius, centroidColor, lineThickness)
 
-        """
-        #get fingerTipPoint
-        if largestContour.any(): #error when largestContour = None
-            handHull = cv2.convexHull(largestContour, returnPoints=False)
-            handDefects = cv2.convexityDefects(largestContour, handHull)
-            fingerTipPoint = getFurthestPoint(handDefects, largestContour, handCentroid)
-        """
-
-        #data = getDataDict(handCentroid, fingerTipPoint, frame)
         data = getDataDict(handCentroid, (0, 0), frame)
 
     except Exception as error:
