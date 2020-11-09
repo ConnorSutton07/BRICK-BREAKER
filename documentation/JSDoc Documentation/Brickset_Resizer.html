@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: Paddle</title>
+    <title>JSDoc: Class: Brickset_Resizer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: Paddle</h1>
+    <h1 class="page-title">Class: Brickset_Resizer</h1>
 
     
 
@@ -28,7 +28,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>Paddle<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Brickset_Resizer<span class="signature">(:)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -41,16 +41,13 @@
     
 
     
-    <h4 class="name" id="Paddle"><span class="type-signature"></span>new Paddle<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Brickset_Resizer"><span class="type-signature"></span>new Brickset_Resizer<span class="signature">(:)</span><span class="type-signature"></span></h4>
     
 
     
 
 
 
-<div class="description">
-    Initializes the paddle object
-</div>
 
 
 
@@ -58,6 +55,54 @@
 
 
 
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>:</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">brickset</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the brickset this resizer is responsible for</td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -93,7 +138,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line9">line 9</a>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -149,358 +194,6 @@
     
 
     
-    <h4 class="name" id="detect_collision"><span class="type-signature"></span>detect_collision<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Function to detect collisions with items, removes the power from the array of powers if there is a collision with the paddle.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line84">line 84</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="draw"><span class="type-signature"></span>draw<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Draws the paddle on the screen
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line46">line 46</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="fetchHandPosition"><span class="type-signature">(async) </span>fetchHandPosition<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    API call to get hand data from python server
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line104">line 104</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="resetPaddle"><span class="type-signature"></span>resetPaddle<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Resets the paddle to initial position on screen
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line56">line 56</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
     <h4 class="name" id="resize"><span class="type-signature"></span>resize<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
@@ -549,7 +242,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line70">line 70</a>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -585,16 +278,12 @@
     
 
     
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="resize_3_column"><span class="type-signature"></span>resize_3_column<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
 
 
-
-<div class="description">
-    Updates the paddle position on screen
-</div>
 
 
 
@@ -637,7 +326,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line32">line 32</a>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line158">line 158</a>
     </li></ul></dd>
     
 
@@ -673,16 +362,12 @@
     
 
     
-    <h4 class="name" id="updateHandData"><span class="type-signature"></span>updateHandData<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="resize_alternating"><span class="type-signature"></span>resize_alternating<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
 
 
-
-<div class="description">
-    Function to update the hand data
-</div>
 
 
 
@@ -725,7 +410,511 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="scripts_paddle.js.html">scripts/paddle.js</a>, <a href="scripts_paddle.js.html#line115">line 115</a>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line199">line 199</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resize_crisscross"><span class="type-signature"></span>resize_crisscross<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line291">line 291</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resize_pyramid"><span class="type-signature"></span>resize_pyramid<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line86">line 86</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resize_spaced_wall"><span class="type-signature"></span>resize_spaced_wall<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line134">line 134</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resize_standard"><span class="type-signature"></span>resize_standard<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line59">line 59</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resize_wall"><span class="type-signature"></span>resize_wall<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line111">line 111</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="resize_zigzag"><span class="type-signature"></span>resize_zigzag<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="scripts_brickset_resizer.js.html">scripts/brickset_resizer.js</a>, <a href="scripts_brickset_resizer.js.html#line225">line 225</a>
     </li></ul></dd>
     
 
