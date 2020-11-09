@@ -7,11 +7,3 @@ def getHandData():
     print(data)
 
 getHandData()
-"""
-def main():
-    while True:
-        getHandData()
-
-if __name__ == '__main__':
-    main()
-"""

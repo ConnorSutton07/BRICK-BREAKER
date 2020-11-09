@@ -28,13 +28,8 @@ app.get('/handDataRead', (req, res)=>{
 
 	childPy.stderr.on('data', (data)=>{
 		console.error('stderr: ',data.toString())
+		res.end()
 	})
-
-  /*
-	childPy.on('close', (code) => {
-		console.log('child process exited with code: ', code.toString()) 
-	})
-  */
 })
 
 app.listen(8000)
