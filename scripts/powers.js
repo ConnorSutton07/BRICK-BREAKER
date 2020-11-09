@@ -328,10 +328,6 @@ class Powers{
   * @post draws the x2Ball item drop from the top of the screen and update y position of power
   */
   drawBall(){
-    /*
-    var img = new Image();
-    img.src = "assets/images/+ball.png";
-    */
     let img = document.getElementById('+ball')
     for (let i=0; i<this.powers.length; i++){
       let power = this.powers[i];
@@ -349,10 +345,6 @@ class Powers{
   * @post draws the Heart item drop from the top of the screen and update y position of power
   */
   drawHeart(){
-    /*
-    var img = new Image();
-    img.src = "assets/images/+live.png";
-    */
     let img = document.getElementById('+live')
     for (let i=0; i<this.powers.length; i++){
       let power = this.powers[i];
@@ -370,10 +362,6 @@ class Powers{
   * @post draws the Plonger item drop from the top of the screen and update y position of power
   */
   drawPlonger(){
-    /*
-    var img = new Image();
-    img.src = "assets/images/plong.png";
-    */
     let img = document.getElementById('plong')
     for (let i=0; i<this.powers.length; i++){
       let power = this.powers[i];
@@ -391,10 +379,6 @@ class Powers{
   * @post draws the Pshorter item drop from the top of the screen and update y position of power
   */
   drawPshorter(){
-    /*
-    var img = new Image();
-    img.src = "assets/images/psmall.png";
-    */
     let img = document.getElementById('psmall')
     for (let i=0; i<this.powers.length; i++){
       let power = this.powers[i];
@@ -412,10 +396,6 @@ class Powers{
   * @post draws the BigBall item drop from the top of the screen and update y position of power
   */
   drawBigBall(){
-    /*
-    var img = new Image();
-    img.src = "assets/images/bball.png";
-    */
     let img = document.getElementById('bball')
     for (let i=0; i<this.powers.length; i++){
       let power = this.powers[i];
@@ -454,10 +434,6 @@ class Powers{
   * @post draws the Ballfast item drop from the top of the screen and update y position of power
   */
   drawBallfast(){
-    /*
-    var img = new Image();
-    img.src = "assets/images/bfast.png";
-    */
     let img = document.getElementById('bfast')
     for (let i=0; i<this.powers.length; i++){
       let power = this.powers[i];
@@ -475,10 +451,6 @@ class Powers{
   * @post draws the Ballslow item drop from the top of the screen and update y position of power
   */
   drawBallslow(){
-    /*
-    var img = new Image();
-    img.src = "assets/images/bslow.png";
-    */
     let img = document.getElementById('bslow')
     for (let i=0; i<this.powers.length; i++){
       let power = this.powers[i];
